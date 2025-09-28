@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Echoes of the Bell: A School Rescue</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom scrollbar for a better aesthetic */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1a202c; /* dark gray */
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4a5568; /* medium gray */
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #718096; /* light gray */
+      }
+
+      /* Game screen ambient glow */
+      @keyframes subtle-glow {
+        0%, 100% {
+          border-color: #334155; /* slate-700 */
+          box-shadow: 0 0 12px rgba(99, 102, 241, 0.15);
+        }
+        50% {
+          border-color: #4f46e5; /* indigo-600 */
+          box-shadow: 0 0 24px rgba(99, 102, 241, 0.3);
+        }
+      }
+      .animate-subtle-glow {
+        animation: subtle-glow 5s ease-in-out infinite;
+      }
+
+      /* For staggering text appearance */
+      .story-paragraph {
+        opacity: 0;
+        animation: fade-in-up 0.7s ease-out forwards;
+      }
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* For choice button click feedback */
+      .choice-selected {
+        animation: click-pulse 0.4s ease-in-out;
+      }
+      @keyframes click-pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(0.98); background-color: #4338ca; }
+        100% { transform: scale(1); }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-900 text-slate-200">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
